@@ -18,20 +18,12 @@ app.use(morgan('dev'))
 // [ ] create a route that accepts json and logs it
 // [ ] start the server
 app.get('/', (req, res) => {
-    res.send({ data: 'Hello World' })
+    res.send(JSON.stringify({ data: 'Hello World' }))
 }
-)
 
-app.post("/", (req, res) => {
-    console.log(req.body)
-})
+app.get("/json", (req, res) => {
     
 
 
 
-export const start = () => {
-    app.listen(3000, () => {
-        console.log('Server started on port 3000')
-    }
-    )
-}
+export const start = () => {}

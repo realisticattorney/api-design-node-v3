@@ -30,8 +30,5 @@ app.post("/", (req, res) => {
 
 
 export const start = () => {
-    app.listen(3000, () => {
-        console.log('Server started on port 3000')
-    }
-    )
+    
 }

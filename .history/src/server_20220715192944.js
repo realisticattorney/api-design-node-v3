@@ -22,16 +22,11 @@ app.get('/', (req, res) => {
 }
 )
 
-app.post("/", (req, res) => {
+app.post("/json", (req, res) => {
     console.log(req.body)
 })
     
 
 
 
-export const start = () => {
-    app.listen(3000, () => {
-        console.log('Server started on port 3000')
-    }
-    )
-}
+export const start = () => {}
