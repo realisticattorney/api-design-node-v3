@@ -5,17 +5,6 @@ import morgan from 'morgan'
 import cors from 'cors' //Connect/Express middleware that can be used to enable CORS with various options.
 
 export const app = express()
-const router = express.Router() //this is like express() but without the app.listen(). It's for creating routes and have it on
-//a different file.
-
-router.get('/', (req, res) => {
-  res.send('/api/v1/')
-})
-router.get('/me', (req, res) => {
-  res.send('/api/v1/me')
-})
-
-app.use('/api', router)
 
 app.disable('x-powered-by')
 
@@ -34,11 +23,12 @@ const log = (req, res, next) => {
 
 app.use(log) //this means it will run the log function for EVERY CALL
 
+
 //app.get('/:id/:bla', (req, res) => {
-// const { id, bla } = req.params
+// const   
 
 //is is classic REST
-//app.get('/data/*', (req, res) => {  //this and
+//app.get('/data/*', (req, res) => {  //this and 
 //app.get('/data?', (req, res) => { //this are rarely used
 app.get(
   '/',
@@ -56,41 +46,9 @@ app.get(
   }
 )
 
-app.get('/user', (req, res, next) => {
-  //you only have one of these per route. do not use an app.get()/post()/etc. for middleware
-  next()
-  res.send({ data: 1 })
-})
-
-app.get('/user', (req, res) => {
-  res.send({ data: 2 })
-})
-
 app.post('/', [log, log, log], (req, res) => {
   console.log(req.body)
 })
-
-app
-  .route('/books')
-  .get((req, res) => {
-    res.send({ data: 'books' })
-  })
-  .post((req, res) => {
-    res.send({ data: 'book' })
-  })
-
-app
-  .route('/books/:id')
-  .get((req, res) => {
-    const { id } = req.params
-    res.send({ data: 'book' + id })
-  })
-  .put((req, res) => {
-    res.send({ data: 'book' })
-  })
-  .delete((req, res) => {
-    res.send({ data: 'book' })
-  })
 
 export const start = () => {
   app.listen(3000, () => {

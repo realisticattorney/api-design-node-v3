@@ -80,10 +80,10 @@ app
   })
 
 app
-  .route('/books/:id')
+  .route('/books/:id/:bla')
   .get((req, res) => {
-    const { id } = req.params
-    res.send({ data: 'book' + id })
+    const { id, bla } = req.params
+    res.send({ data: 'book' + id + bla })
   })
   .put((req, res) => {
     res.send({ data: 'book' })

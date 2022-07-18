@@ -5,17 +5,8 @@ import morgan from 'morgan'
 import cors from 'cors' //Connect/Express middleware that can be used to enable CORS with various options.
 
 export const app = express()
-const router = express.Router() //this is like express() but without the app.listen(). It's for creating routes and have it on
-//a different file.
+const router = express.Router()//this is like express() but without the 
 
-router.get('/', (req, res) => {
-  res.send('/api/v1/')
-})
-router.get('/me', (req, res) => {
-  res.send('/api/v1/me')
-})
-
-app.use('/api', router)
 
 app.disable('x-powered-by')
 
@@ -63,34 +54,12 @@ app.get('/user', (req, res, next) => {
 })
 
 app.get('/user', (req, res) => {
-  res.send({ data: 2 })
+  res.se nd({ data: 2 })
 })
 
 app.post('/', [log, log, log], (req, res) => {
   console.log(req.body)
 })
-
-app
-  .route('/books')
-  .get((req, res) => {
-    res.send({ data: 'books' })
-  })
-  .post((req, res) => {
-    res.send({ data: 'book' })
-  })
-
-app
-  .route('/books/:id')
-  .get((req, res) => {
-    const { id } = req.params
-    res.send({ data: 'book' + id })
-  })
-  .put((req, res) => {
-    res.send({ data: 'book' })
-  })
-  .delete((req, res) => {
-    res.send({ data: 'book' })
-  })
 
 export const start = () => {
   app.listen(3000, () => {
