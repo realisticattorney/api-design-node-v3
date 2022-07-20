@@ -99,5 +99,3 @@ export const start = () => {
 }
 
 //micro-service architecture.
-//Experienced with WebSockets, RESTful and RPC-based APIs.
-//Thoroughly experienced with React, Flux, SASS, Redux and the core principles surrounding these.
